@@ -1,26 +1,17 @@
-class Animal {
-    public void sound(){
-        System.out.println("Animal makes a sound");
+class Calculator {
+    @Deprecated
+    public int add (int a, int b) {
+        return a + b;
+    }
+    public int addNumber (int a , int b) {
+        return a + b;
     }
 }
-class Dog extends Animal {
-    @Override
-    public void sound() {
-        System.out.println("Dog barks");
-    }
-}
-class Cat extends Animal {
-    @Override
-    public void sound() {
-        System.out.println("Cat meow");
-    }
-}
-public class Main {         // 모든 쓰레드가 끝날때 까지 join 으로 대기 한 후 각쓰레드 값을 더해 전체를 구한다.
+public class Main {
     public static void main(String[] args) {
-        Animal dog = new Dog();
-        Animal cat = new Cat();
+        Calculator calculator = new Calculator();
 
-        dog.sound();
-        cat.sound();
+        System.out.println(calculator.add(1,2)); // 실행은 되는데 노란줄 뜸
+        System.out.println(calculator.addNumber(1, 2));
     }
 }
