@@ -1,17 +1,13 @@
-class Calculator {
-    @Deprecated
-    public int add (int a, int b) {
-        return a + b;
-    }
-    public int addNumber (int a , int b) {
-        return a + b;
-    }
-}
 public class Main {
+    @SuppressWarnings("rawtypes")   // 제시한 상황의 경고를 무시
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        java.util.List list = new java.util.ArrayList(); // 제네릭 없다고 경고
 
-        System.out.println(calculator.add(1,2)); // 실행은 되는데 노란줄 뜸
-        System.out.println(calculator.addNumber(1, 2));
+        list.add("Hello");
+        list.add("World");
+
+        for (Object obj: list) { // Object 로 설정하여 모든타입에 열어놓았다.
+            System.out.println(obj);
+        }
     }
 }
